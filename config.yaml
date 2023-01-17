@@ -1,0 +1,6 @@
+app:
+  name: nest-server
+  port: 8001
+database:
+  type: mysql
+  url: 'mysql://root:123456@localhost:3306/nest'
