@@ -17,4 +17,14 @@ export class UserProvider {
   async findById(id: number) {
     return await this.repository.findOneBy({ id });
   }
+
+  async updateById(id: number, update: User) {
+    const result = await this.repository.update(id, update);
+    return result.affected > 0;
+  }
+
+  async createUser(model: User) {
+    const result = await this.repository.create(model);
+    return result;
+  }
 }

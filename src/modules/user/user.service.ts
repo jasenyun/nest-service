@@ -13,4 +13,12 @@ export class UserService {
   async getInfo(id: number): Promise<User> {
     return await this.userProvider.findById(id);
   }
+
+  async UpdateUser(id: number, updates: User): Promise<boolean> {
+    return await this.userProvider.updateById(id, updates);
+  }
+
+  async createUser(model: User): Promise<any> {
+    return await this.userProvider.createUser(model);
+  }
 }
