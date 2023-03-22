@@ -70,3 +70,38 @@ docker run --name mysql-nest -d -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=
   nest g service user
   nest g module user
 ```
+
+## 接口说明
+
+### 创建用户
+- 接口地址：/api/user/add
+- Method：POST
+- 参数：请求 body 传参
+
+例子：使用 axios 调用接口
+```
+var axios = require('axios');
+var data = JSON.stringify({
+  "userName": "15test",
+  "code": "t110002"
+});
+
+var config = {
+  method: 'post',
+maxBodyLength: Infinity,
+  url: 'http://localhost:8001/api/user/add',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
